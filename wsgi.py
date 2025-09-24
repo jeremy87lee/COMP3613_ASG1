@@ -76,6 +76,13 @@ def add_stop_command(drive_id, house_number, resident_id):
     if not resident:
         print(f'No resident found with ID {resident_id}')
         return
+
+    address_1 = resident.address
+    address_2 = drive.street
+    if address_1 != address_2:
+        print(f'Resident address {address_1} does not match drive street {address_2}. Stop not added.')
+        return
+    
     create_stop(drive_id, house_number, resident_id)
     print(f'Stop added to drive number {drive_id} for resident number {resident_id} at house number {house_number} on {address}!')
 
