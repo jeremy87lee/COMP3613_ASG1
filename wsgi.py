@@ -53,21 +53,30 @@ def list_user_command(format):
 @click.argument("driver_id", type=int, default=1)
 @click.argument("street", type=str, default="123 Main St")
 def schedule_drive_command(driver_id, street):
-    create_drive(driver_id, street)
-    
+    driver = Driver.query.get(driver_id)
+    if driver:
+        create_drive(driver_id, street)
+    else:
+        print(f'No driver found with ID {driver_id}')
 
 @resident_cli.command("addstop", help="Add a Stop to a Drive")
 @click.argument("drive_id", type=int, default=1)
 @click.argument("house_number", type=int, default=1)
 @click.argument("resident_id", type=int, default=1)
 def add_stop_command(drive_id, house_number, resident_id):
-    create_stop(drive_id, house_number, resident_id)
+    
     drive = Drive.query.get(drive_id)
     if drive: 
         address = drive.street
     else:
         print(f'No drive found with ID {drive_id}')
         return
+    
+    resident = Resident.query.get(resident_id)
+    if not resident:
+        print(f'No resident found with ID {resident_id}')
+        return
+    create_stop(drive_id, house_number, resident_id)
     print(f'Stop added to drive number {drive_id} for resident number {resident_id} at house number {house_number} on {address}!')
 
 @resident_cli.command("viewdriver", help="View status and location of a Driver")
