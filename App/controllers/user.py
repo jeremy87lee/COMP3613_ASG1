@@ -64,6 +64,8 @@ def create_stop(drive_id, house_number, resident_id):
 def viewInbox(street):
     drives = db.session.query(Drive).filter(Drive.street == street).all()
     if drives:
-        return drives
+        for drive in drives:
+            print(f'Drive ID: {drive.id}, Driver ID: {drive.driver_id}, Street: {drive.street}')
+            
     else: 
         print(f'No drives scheduled for {street}, which is the resident\'s street')
