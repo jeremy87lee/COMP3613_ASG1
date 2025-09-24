@@ -50,17 +50,20 @@ def create_driver(user_id, license_number, vehicle_info, location, name,status):
     return newdriver
 
 def create_drive(driver_id, street):
-    newdrive = Drive(driver_id=driver_id, street=street)
-    db.session.add(newdrive)
-    db.session.commit()
-    return newdrive
+    driver = Driver.query.get(driver_id)
+    driver.create_drive(street)
+    
 
-def create_stop(drive_id, address, resident_id):
-    newstop = Stop(drive_id=drive_id, address=address, resident_id=resident_id)
-    db.session.add(newstop)
-    db.session.commit()
-    return newstop
+def create_stop(drive_id, house_number, resident_id):
+    resident = Resident.query.get(resident_id)
+    resident.create_stop(drive_id, house_number)
+    
+    
+    
 
 def viewInbox(street):
-    return db.session.query(Drive).filter(Drive.street == street).all()
-     
+    drives = db.session.query(Drive).filter(Drive.street == street).all()
+    if drives:
+        return drives
+    else: 
+        print(f'No drives scheduled for {street}, which is the resident\'s street')
