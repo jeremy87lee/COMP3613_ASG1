@@ -58,16 +58,17 @@ class Driver(db.Model):
     def create_drive(self, street):
         
         streets = Resident.query.with_entities(Resident.address).all()
-        for s in streets:
-            if street == s[0]:
+        
+        for i in range(len(streets)):
+            if street == streets[i][0]:
                 newdrive = Drive(driver_id=self.id, street=street)
                 db.session.add(newdrive)
                 db.session.commit()
                 print(f'Drive scheduled for driver number {self.id} on {street}!')
                 return newdrive
-            else: 
-                print(f'Street {street} not found in resident addresses.')
-                return None
+        print(f'Street {street} not found in resident addresses.')
+        return None
+                
         
         
     
@@ -92,5 +93,4 @@ class Stop(db.Model):
     resident_id = db.Column(db.Integer, db.ForeignKey('resident.id'), nullable=False)
     
     
-
 
