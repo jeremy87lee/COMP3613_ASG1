@@ -69,3 +69,15 @@ def viewInbox(street):
             
     else: 
         print(f'No drives scheduled for {street}, which is the resident\'s street')
+
+def get_all_drivers():
+    drivers = db.session.scalars(db.select(Driver)).all()
+    for driver in drivers:
+        print(f'Driver ID: {driver.id}, Name: {driver.name}, Vehicle Info: {driver.vehicle_info}, Location: {driver.location}')
+    return drivers
+
+def get_all_residents():
+    residents = db.session.scalars(db.select(Resident)).all()
+    for resident in residents:
+        print(f'Resident ID: {resident.id}, Name: {resident.name}, Address: {resident.address}')
+    return residents
