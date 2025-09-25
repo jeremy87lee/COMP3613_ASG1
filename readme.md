@@ -120,7 +120,7 @@ Default: resident_id: 1.
 
 Example: flask resident viewinbox 3.
 
-Error handling: Code to ensure only resident IDs which already exist can be entered.
+Error handling: Code to ensure only resident IDs which already exist can be entered. If no drives are scheduled to the relevant user's street, an appropriate message is displayed.
 
 ### Command to view driver: 
 Command: flask resident viewdriver driver_id.
