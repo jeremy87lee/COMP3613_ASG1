@@ -85,6 +85,11 @@ Then execute the command invoking with flask cli with command name and the relev
 ```bash
 $ flask user create bob bobpass
 ```
+## User Commands
+Command to view all drivers: flask user list_drivers
+
+Command to view all reisdents: flask user list_residents
+
 ## Driver Commands
 AppGroup: driver
 
