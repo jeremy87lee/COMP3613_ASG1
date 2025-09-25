@@ -88,33 +88,47 @@ $ flask user create bob bobpass
 ## Driver Commands
 AppGroup: driver
 
-Command to schedule a drive: 
-Command: flask driver schedule driver_id street
-Default: driver_id: 1, street: 123 Main St
-Example: flask driver schedule 1 123 Main St
-Error handling: Code was written to ensure only driver IDs and resident streets which already exist can be entered
+### Command to schedule a drive:
+
+Command: flask driver schedule driver_id street.
+
+Default: driver_id: 1, street: 123 Main St.
+
+Example: flask driver schedule 1 123 Main St.
+
+Error handling: Code was written to ensure only driver IDs and resident streets which already exist can be entered.
 
 ## Resident Commands
 AppGroup: resident 
 
-Command to add a stop: 
-Command: flask resident addstop drive_id house_number resident_id
-Default: drive_id: 1, house_number: 1, resident_id: 1
-Example: flask resident addstop 2 57 2
+### Command to add a stop: 
+Command: flask resident addstop drive_id house_number resident_id.
+
+Default: drive_id: 1, house_number: 1, resident_id: 1.
+
+Example: flask resident addstop 2 57 2.
+
 Error handling: Code to ensure only drive IDs and resident IDs that already exist can be entered. Code was also written
-to ensure that resident's can only request a stop to a drive that is on their street. 
+to ensure that resident's can only request a stop to a drive that is on their street.
+
 NB: drives need to be created by the driver command before a stop can be added to it.
 
-Command to view inbox: 
-Command: flask resident viewinbox resident_id
-Default: resident_id: 1
-Example: flask resident viewinbox 3
+### Command to view inbox: 
+Command: flask resident viewinbox resident_id.
+
+Default: resident_id: 1.
+
+Example: flask resident viewinbox 3.
+
 Error handling: Code to ensure only resident IDs which already exist can be entered.
 
-Command to view driver: 
-Command: flask resident viewdriver driver_id
-Default: driver_id: 1
-Example: flask resident viewdriver 2
+### Command to view driver: 
+Command: flask resident viewdriver driver_id.
+
+Default: driver_id: 1.
+
+Example: flask resident viewdriver 2.
+
 Error handling: Code to ensure only driver IDs that already exist can be entered.
 
 # Running the Project
