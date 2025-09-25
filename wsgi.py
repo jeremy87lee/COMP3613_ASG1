@@ -5,7 +5,7 @@ from flask.cli import with_appcontext, AppGroup
 from App.database import db, get_migrate
 from App.models import User, Resident, Driver, Drive, Stop
 from App.main import create_app
-from App.controllers import ( create_user, get_all_users_json, get_all_users, initialize, create_drive, create_stop, viewInbox)
+from App.controllers import ( create_user, get_all_users_json, get_all_users, initialize, create_drive, create_stop, viewInbox, get_all_drivers, get_all_residents)
 
 
 # This commands file allow you to create convenient CLI commands for testing controllers
@@ -48,6 +48,19 @@ def list_user_command(format):
         print(get_all_users())
     else:
         print(get_all_users_json())
+
+@user_cli.command("list_drivers", help="Lists drivers in the database")
+@click.argument("format", default="string")
+def list_driver_command(format):
+    if format == 'string':
+        print(get_all_drivers())
+    
+
+@user_cli.command("list_residents", help="Lists residents in the database")
+@click.argument("format", default="string")
+def list_resident_command(format):
+    if format == 'string':
+        print(get_all_residents())
 
 @driver_cli.command("schedule", help="Schedule a Drive to a Street")
 @click.argument("driver_id", type=int, default=1)
