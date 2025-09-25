@@ -74,6 +74,10 @@ def get_all_drivers():
     drivers = db.session.scalars(db.select(Driver)).all()
     for driver in drivers:
         print(f'Driver ID: {driver.id}, Name: {driver.name}, Vehicle Info: {driver.vehicle_info}, Location: {driver.location}')
+        if driver.status:
+            print(f', Status: Available')
+        else:
+            print(f', Status: Not available')
     return drivers
 
 def get_all_residents():
