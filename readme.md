@@ -92,6 +92,8 @@ Command to view all reisdents: flask user list_residents
 
 Command to view all drives: flask user list_drives
 
+Command to view all stops: flask user list_stops
+
 ## Driver Commands
 AppGroup: driver
 

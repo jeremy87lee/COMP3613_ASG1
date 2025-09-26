@@ -91,3 +91,9 @@ def get_all_drives():
     for drive in drives:
         print(f'Drive ID: {drive.id}, Driver ID: {drive.driver_id}, Street: {drive.street}')
     return drives
+
+def get_all_stops():
+    stops = db.session.scalars(db.select(Stop)).all()
+    for stop in stops:
+        print(f'Stop ID: {stop.id}, Drive ID: {stop.drive_id}, House Number: {stop.house_number}, Resident ID: {stop.resident_id}')
+    return stops
