@@ -5,7 +5,7 @@ from flask.cli import with_appcontext, AppGroup
 from App.database import db, get_migrate
 from App.models import User, Resident, Driver, Drive, Stop
 from App.main import create_app
-from App.controllers import ( create_user, get_all_users_json, get_all_users, initialize, create_drive, create_stop, viewInbox, get_all_drivers, get_all_residents)
+from App.controllers import ( create_user, get_all_users_json, get_all_users, initialize, create_drive, create_stop, viewInbox, get_all_drivers, get_all_residents,get_all_drives)
 
 
 # This commands file allow you to create convenient CLI commands for testing controllers
