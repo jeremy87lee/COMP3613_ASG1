@@ -62,6 +62,12 @@ def list_resident_command(format):
     if format == 'string':
         print(get_all_residents())
 
+@user_cli.command("list_drives", help="Lists drives in the database")
+@click.argument("format", default="string")
+def list_drive_command(format):
+    if format == 'string':
+        print(get_all_drives())
+
 @driver_cli.command("schedule", help="Schedule a Drive to a Street")
 @click.argument("driver_id", type=int, default=1)
 @click.argument("street", type=str, default="123 Main St")
