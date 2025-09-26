@@ -85,3 +85,9 @@ def get_all_residents():
     for resident in residents:
         print(f'Resident ID: {resident.id}, Name: {resident.name}, Address: {resident.address}')
     return residents
+
+def get_all_drives():
+    drives = db.session.scalars(db.select(Drive)).all()
+    for drive in drives:
+        print(f'Drive ID: {drive.id}, Driver ID: {drive.driver_id}, Street: {drive.street}')
+    return drives
