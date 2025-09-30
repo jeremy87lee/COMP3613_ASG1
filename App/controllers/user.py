@@ -73,7 +73,7 @@ def viewInbox(street):
 def get_all_drivers():
     drivers = db.session.scalars(db.select(Driver)).all()
     if not drivers:
-        print('No drivers found.')
+        print('No drivers exist in the system yet.')
         return []
     for driver in drivers:
         print(f'Driver ID: {driver.id}, Name: {driver.name}, Vehicle Info: {driver.vehicle_info}, Location: {driver.location}')
@@ -86,7 +86,7 @@ def get_all_drivers():
 def get_all_residents():
     residents = db.session.scalars(db.select(Resident)).all()
     if not residents:
-        print('No residents found.')
+        print('No residents exist in the system yet.')
         return []
     for resident in residents:
         print(f'Resident ID: {resident.id}, Name: {resident.name}, Address: {resident.address}')
@@ -95,7 +95,7 @@ def get_all_residents():
 def get_all_drives():
     drives = db.session.scalars(db.select(Drive)).all()
     if not drives:
-        print('No drives found.')
+        print('No drives exist in the system yet.')
         return []
     for drive in drives:
         print(f'Drive ID: {drive.id}, Driver ID: {drive.driver_id}, Street: {drive.street}')
@@ -104,7 +104,7 @@ def get_all_drives():
 def get_all_stops():
     stops = db.session.scalars(db.select(Stop)).all()
     if not stops:
-        print('No stops found.')
+        print('No stops exist in the system yet.')
         return []
     for stop in stops:
         print(f'Stop ID: {stop.id}, Drive ID: {stop.drive_id}, House Number: {stop.house_number}, Resident ID: {stop.resident_id}')
