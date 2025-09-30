@@ -101,9 +101,9 @@ AppGroup: driver
 
 Command: flask driver schedule driver_id street.
 
-Default: driver_id: 1, street: 123 Main St.
+Default: driver_id: 1, street: 123 Main St
 
-Example: flask driver schedule 1 123 Main St.
+Example: flask driver schedule 1 123 Main St
 
 Error handling: Code was written to ensure only driver IDs and resident streets which already exist can be entered.
 
