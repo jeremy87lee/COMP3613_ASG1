@@ -72,6 +72,9 @@ def viewInbox(street):
 
 def get_all_drivers():
     drivers = db.session.scalars(db.select(Driver)).all()
+    if not drivers:
+        print('No drivers found.')
+        return []
     for driver in drivers:
         print(f'Driver ID: {driver.id}, Name: {driver.name}, Vehicle Info: {driver.vehicle_info}, Location: {driver.location}')
         if driver.status:
@@ -82,18 +85,27 @@ def get_all_drivers():
 
 def get_all_residents():
     residents = db.session.scalars(db.select(Resident)).all()
+    if not residents:
+        print('No residents found.')
+        return []
     for resident in residents:
         print(f'Resident ID: {resident.id}, Name: {resident.name}, Address: {resident.address}')
     return residents
 
 def get_all_drives():
     drives = db.session.scalars(db.select(Drive)).all()
+    if not drives:
+        print('No drives found.')
+        return []
     for drive in drives:
         print(f'Drive ID: {drive.id}, Driver ID: {drive.driver_id}, Street: {drive.street}')
     return drives
 
 def get_all_stops():
     stops = db.session.scalars(db.select(Stop)).all()
+    if not stops:
+        print('No stops found.')
+        return []
     for stop in stops:
         print(f'Stop ID: {stop.id}, Drive ID: {stop.drive_id}, House Number: {stop.house_number}, Resident ID: {stop.resident_id}')
     return stops
